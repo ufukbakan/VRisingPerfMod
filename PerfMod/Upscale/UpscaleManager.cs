@@ -45,7 +45,7 @@ namespace PureDark.VRising.PerfMod.Upscale
         public void Update()
         {
             bool keyCombination = (ModConfig.CombinationKey.Value != KeyCode.None) ? Input.GetKey(ModConfig.CombinationKey.Value) : true;
-            if (keyCombination && Input.GetKeyUp(KeyCode.Keypad1))
+            if (keyCombination && Input.GetKeyUp(KeyCode.F2))
             {
                 if(IsUpscaleEnabled() && UpscaleFlat.upscaleMethod == UpscaleMethod.DLSS)
                     UpscaleFlat.ToggleUpscaleFeature(false);
@@ -53,7 +53,7 @@ namespace PureDark.VRising.PerfMod.Upscale
                     UpscaleFlat.SwitchUpscaleMethod(UpscaleMethod.DLSS);
                 textDisplayTime = 30f;
             }
-            if (keyCombination && Input.GetKeyUp(KeyCode.Keypad2))
+            if (keyCombination && Input.GetKeyUp(KeyCode.F3))
             {
                 if (IsUpscaleEnabled() && UpscaleFlat.upscaleMethod == UpscaleMethod.FSR2)
                     UpscaleFlat.ToggleUpscaleFeature(false);
@@ -61,7 +61,7 @@ namespace PureDark.VRising.PerfMod.Upscale
                     UpscaleFlat.SwitchUpscaleMethod(UpscaleMethod.FSR2);
                 textDisplayTime = 30f;
             }
-            if (keyCombination && Input.GetKeyUp(KeyCode.Keypad3))
+            if (keyCombination && Input.GetKeyUp(KeyCode.F4))
             {
                 if (IsUpscaleEnabled() && UpscaleFlat.upscaleMethod == UpscaleMethod.XESS)
                     UpscaleFlat.ToggleUpscaleFeature(false);
@@ -69,7 +69,7 @@ namespace PureDark.VRising.PerfMod.Upscale
                     UpscaleFlat.SwitchUpscaleMethod(UpscaleMethod.XESS);
                 textDisplayTime = 30f;
             }
-            if (keyCombination && Input.GetKeyUp(KeyCode.Keypad4))
+            if (keyCombination && Input.GetKeyUp(KeyCode.F5))
             {
                 if (IsUpscaleEnabled() && UpscaleFlat.upscaleMethod == UpscaleMethod.DLAA)
                     UpscaleFlat.ToggleUpscaleFeature(false);
@@ -141,12 +141,12 @@ namespace PureDark.VRising.PerfMod.Upscale
                 {
                     GUI.Label(new Rect(textFont.fontSize, Screen.height - textFont.fontSize * 4, textFont.fontSize * 10, textFont.fontSize * 3), SSName + " " + GAPI + " " + UpscaleFlat.qualityLevel.ToString()
                         + "(" + UpscaleFlat.renderWidth + "," + UpscaleFlat.renderHeight + " -> " + Screen.width + "," + Screen.height + ")\r\n"
-                        + "CTRL+NumPad1/2/3/4 To Turn Switch Between DLSS/FSR2/XeSS/DLAA || Press Again To Turn It Off.\r\n"
+                        + "CTRL+F2/F3/F4/F5 To Turn Switch Between DLSS/FSR2/XeSS/DLAA || Press Again To Turn It Off.\r\n"
                         + "CTRL+↑/↓ To Change Profile  ||  CTRL+←/→ To Addjust Sharpness(" + UpscaleFlat.Sharpness + ")\r\n", textFont);
                 }
                 else
                     GUI.Label(new Rect(textFont.fontSize, Screen.height - textFont.fontSize * 4, textFont.fontSize * 10, textFont.fontSize * 3), SSName + " Off\r\n"
-                        + "CTRL+NumPad1/2/3/4 To Switch Between DLSS/FSR2/XeSS/DLAA || Press Again To Turn It Off.", textFont);
+                        + "CTRL+F2/F3/F4/F5 To Switch Between DLSS/FSR2/XeSS/DLAA || Press Again To Turn It Off.", textFont);
                 textDisplayTime -= Time.deltaTime;
 
                 if (IsUpscaleEnabled())
